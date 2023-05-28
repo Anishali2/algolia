@@ -4,9 +4,8 @@ import FilterButton from '@/components/Filters'
 import { categery, colourStyles } from '@/constants/filters'
 import ReactSelect from 'react-select'
 import { MagnifyingGlassCircleIcon } from '@heroicons/react/20/solid'
-import ActiveFilters from '@/components/Filters/ActiveFilters'
+import { ActiveFiltersGender } from '@/components/Filters/ActiveFilters'
 import UserProfile from '@/components/UsersProfile'
-import useFetch from '@/hooks/useFetch'
 import {
   connectHits,
   connectSearchBox,
@@ -16,10 +15,7 @@ import {
 } from 'react-instantsearch-dom'
 import SearchBar from '@/components/SearchBar'
 import algoliasearch from 'algoliasearch'
-import { useEffect } from 'react'
-import CheckBoxes from '../components/Filters/CheckBoxes'
 export default function Home() {
-  const { results, fetchData } = useFetch()
   // const appId = 'BWSZCNGIF8'
   // const apiKey = 'a4212f0ee1185799ec70bbab52be0ac6'
   // const indexName = 'meetmymentor'
@@ -29,24 +25,8 @@ export default function Home() {
     return null
   }
 
-  const GenderRefinementList = ({ items, refine, createURL }) => (
+  const GenderRefinementList = ({ items, refine, createURL }: any) => (
     <div>
-      {/* {items.map((item) => (
-        <div key={item.label}>
-          <input
-            type="checkbox"
-            value={item.label}
-            checked={item.isRefined}
-            onChange={(event) => {
-              event.preventDefault()
-              refine(item.value)
-            }}
-          />
-          <a href={createURL(item.value)}>
-            {item.label} ({item.count})
-          </a>
-        </div>
-      ))} */}
       {items &&
         items.map((person: any, personIdx: number) => (
           <div key={personIdx} className="relative flex items-start py-4">
@@ -134,8 +114,8 @@ export default function Home() {
               </div>
             </div>
           </JustifyBetween>
-          <RefinementList attribute="documentdata.personalinfo.gender" />
-          <ActiveFilters />
+          {/* <RefinementList attribute="documentdata.personalinfo.gender" /> */}
+          <ActiveFiltersGender attribute="documentdata.personalinfo.gender" />
           <CustomHits />
           {/* <RefinementList attribute="documentdata.personalinfo.gender" /> */}
           {/* {results && results.map(() => <p>hello</p>)} */}
