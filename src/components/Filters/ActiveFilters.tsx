@@ -1,9 +1,7 @@
-import { categery } from '@/constants/filters'
-import { useSelected } from '@/zustand'
 import React from 'react'
 import { connectRefinementList } from 'react-instantsearch-dom'
 
-const ActiveFilters = ({ items, refine, createURL }) => {
+const ActiveFilters = ({ items, refine }: any) => {
   return (
     <div>
       <section className="flex items-center justify-center mt-5">
@@ -22,8 +20,8 @@ const ActiveFilters = ({ items, refine, createURL }) => {
               <div className="-m-1 flex flex-wrap items-center">
                 {items &&
                   items
-                    .filter((v) => v.isRefined == true)
-                    .map((value) => (
+                    .filter((v: any) => v.isRefined == true)
+                    .map((value: any) => (
                       <span
                         key={value.label}
                         className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900"
@@ -38,15 +36,7 @@ const ActiveFilters = ({ items, refine, createURL }) => {
                           //   cboxheading={activeFilter.cbheading}
                           className="ml-1 inline-flex h-4 w-4 flex-shrink-0 rounded-full p-1 text-gray-400 hover:bg-gray-300 hover:text-gray-500"
                           onClick={() => refine(value.value)}
-                          //   onClick={(e) => {
-                          //     if (e.target.getAttribute('cboxheading') != null) {
-                          //       props.onclickingxbutton(
-                          //         e.target.value,
-                          //         false,
-                          //         e.target.getAttribute('cboxheading')
-                          //       )
-                          //     }
-                          //   }}
+                          
                         >
                           <svg
                             className="h-2 w-2"

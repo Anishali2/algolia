@@ -10,8 +10,7 @@ import {
   connectHits,
   connectSearchBox,
   connectRefinementList,
-  InstantSearch,
-  RefinementList
+  InstantSearch
 } from 'react-instantsearch-dom'
 import SearchBar from '@/components/SearchBar'
 import algoliasearch from 'algoliasearch'
@@ -19,13 +18,13 @@ export default function Home() {
   // const appId = 'BWSZCNGIF8'
   // const apiKey = 'a4212f0ee1185799ec70bbab52be0ac6'
   // const indexName = 'meetmymentor'
-  const Hitsz = ({ hits }) => {
+  const Hitsz = ({ hits }: any) => {
     console.log('hits------', hits)
 
     return null
   }
 
-  const GenderRefinementList = ({ items, refine, createURL }: any) => (
+  const GenderRefinementList = ({ items, refine }: any) => (
     <div>
       {items &&
         items.map((person: any, personIdx: number) => (
